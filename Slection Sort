@@ -1,0 +1,24 @@
+[Approach -- Find the Largest/Smaller element from the arr and replace its to the poriginal position do this for n-1 number of times]
+[Time Complexity -- O(n^2) in all scase]
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class Solution {
+    public int[] selectionSort(int[] nums) {
+        int n = nums.length;
+        for(int i =0; i<n-1; i++){
+            int max = Integer.MIN_VALUE;
+            int idx = -1;
+            for(int j =0; j<n-i; j++){
+                if(nums[j]>max){
+                    max = nums[j];
+                    idx = j;
+                }
+            }
+            int temp = nums[n-1-i];
+            nums[n-1-i] = max;
+            nums[idx] = temp;
+        }
+        return nums;
+    }
+}
